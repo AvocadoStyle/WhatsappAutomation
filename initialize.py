@@ -24,7 +24,6 @@ class wabot:
     def _getCheckname(self, driver, name):
         search = driver.find_elements_by_class_name("TbtXF")
         for s in search:
-            #find = s.find_element_by_class_name("_2pkLM")
             find = s.find_element_by_class_name("_3Dr46")
             print(find.text)
             if(find.text == name):
@@ -36,33 +35,21 @@ class wabot:
     def getOnline(self, driver, name):
         find = self._getCheckname(driver, name)
         find.click()
-    def sendMessage(self, driver, name, contain):
+    def sendMessage(self, driver, name, contain, times):
+        counter = 0
         find = self._getCheckname(driver, name)
         find.click()
-        time.sleep(5)
-        message = find.find_element_by_class_name("_2_1wd copyable-text selectable-text")
-
         time.sleep(1)
-        print("checkcheck\n")
-        time.sleep(1)
-        while(True):
+        # message = driver.find_element_by_class_name("_2A8P4")
+        while(counter != times):
+            message = driver.find_element_by_class_name("_2A8P4")
+            con = contain
+            contain = contain + str(counter)
             message.send_keys(contain)
             message.send_keys(Keys.RETURN)
-            time.sleep(1)
-
-
-
-
-
-
-        search = driver.find_element_by_class_name("_35k-1 _1adfa _3-8er")
-        "_7yrSq _3-8er selectable-text copyable-text"
-        time.sleep(2)
-        text = search.text
-        time.sleep(2)
-        print(text)
-
-
+            time.sleep(0.4)
+            counter += 1
+            contain = con
 
 
 
