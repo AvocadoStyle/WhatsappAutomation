@@ -35,6 +35,19 @@ class wabot:
     def getOnline(self, driver, name):
         find = self._getCheckname(driver, name)
         find.click()
+        time.sleep(3)
+
+        #check = driver.find_elements_by_class_name("YmixP fKfSX")
+        check = driver.find_elements_by_class_name("_7yrSq _3-8er selectable-text copyable-text")
+        print(check.text)
+
+        #"_2uaUb" # for the main for the status and all the items
+        #"_1-qgF"
+
+        #"YmixP fKfSX" # for the status
+
+
+
     def sendMessage(self, driver, name, contain, times):
         counter = 0
         find = self._getCheckname(driver, name)
@@ -47,11 +60,9 @@ class wabot:
             contain = contain + str(counter)
             message.send_keys(contain)
             message.send_keys(Keys.RETURN)
-            time.sleep(0.4)
+            time.sleep(1)
             counter += 1
             contain = con
-
-
 
     def close(self, driver):
         driver.quit()
